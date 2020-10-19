@@ -7,13 +7,16 @@ import NewPost from "./Components/NewPost/NewPost"
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import PrivateRoute from "./Components/PrivateRoute"
 
+import { PostContext} from "./context/PostContext";
+
 function App() {
   return (
     <div className="App">
+     
       <Router>
         <Link to="/login">Login</Link>
         <Link to="/signup">Signup</Link>
-
+        <Link to="/newpost">newpost</Link>
         {/* <PrivateRoute exact path="/" component={""} /> */}
         <Switch>
           <Route path="/login" component={Signin} />

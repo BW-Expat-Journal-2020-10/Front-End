@@ -10,7 +10,6 @@ const initialSignInValues = {
 
 export default function SignIn() {
   const [signInValues, setSignInValues] = useState(initialSignInValues);
-  const {userData, setUserData} = useContext(PostContext);
 
   const inputChange = (e) => {
     setSignInValues({
@@ -28,9 +27,11 @@ export default function SignIn() {
 
       )
       .then((res) => {
-        console.log(res.data);
+        console.log("Login request", res.data);
         window.localStorage.setItem("token", res.data.token)
-        setUserData(res.data)
+        window.localStorage.setItem("userId", res.data.id)
+        window.localStorage.setItem("message", res.data.message)
+        // setUserData(res.data)
       });
 
     setSignInValues(initialSignInValues);

@@ -5,12 +5,13 @@ import { axiosWithAuth } from "../../utils/axiosWithAuth";
 
 
 const NewPost = () => {
-  
-const {userData } = useContext(PostContext);
+
+const userId = localStorage.getItem("userId")
+// const {userData } = useContext(PostContext);
 
   const initialPostValues = {
 
-    user_id: userData.localUserId,
+    user_id: parseInt(userId),
     title: "",
     img_url: "",
     body: ""
@@ -77,6 +78,8 @@ const {userData } = useContext(PostContext);
           <button>Post</button>
         </div>
       </form>
+      <h1>Post By My User Id</h1>
+
     </div>
   );
 };

@@ -29,7 +29,6 @@ export default function Signup() {
       .then((res) => {
         console.log(res.data);
       });
-
     setSignupValues(initialSignupValues);
   };
 

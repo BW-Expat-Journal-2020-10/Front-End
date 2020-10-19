@@ -18,7 +18,7 @@ export default function SignIn() {
   };
 
   const submitForm = (e) => {
-      e.preventDefault()
+    e.preventDefault();
     axios
       .post(
         "https://expatjournal-api.herokuapp.com/api/auth/login",
@@ -26,9 +26,10 @@ export default function SignIn() {
       )
       .then((res) => {
         console.log(res.data);
+        window.localStorage.setItem("token", res.data.token)
       });
 
-    setSignInValues(initialSignInValues)
+    setSignInValues(initialSignInValues);
   };
 
   return (

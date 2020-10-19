@@ -21,8 +21,10 @@ const PostPage = () => {
    }
   return(
     <>
-    {posts.map(post => (
-     <p>{post.title}</p>
+    {posts.map((post, i) => (
+        <div key={i}>
+        <p >{post.title}</p>
+        </div>
     ))}
    <button onClick={() => push("/newpost")}>Create a new post</button>
     </>

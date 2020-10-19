@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import SignInForm from "./SigninForm";
 import axios from "axios";
+import { PostContext } from "../../context/PostContext";
 
 const initialSignInValues = {
   username: "",
@@ -23,20 +24,27 @@ export default function SignIn() {
       .post(
         "https://expatjournal-api.herokuapp.com/api/auth/login",
         signInValues
+
       )
       .then((res) => {
-        console.log(res.data);
+        console.log("Login request", res.data);
         window.localStorage.setItem("token", res.data.token)
+        window.localStorage.setItem("userId", res.data.id)
+        window.localStorage.setItem("message", res.data.message)
+        // setUserData(res.data)
       });
 
     setSignInValues(initialSignInValues);
   };
 
   return (
+
     <SignInForm
       change={inputChange}
       values={signInValues}
       submit={submitForm}
     />
+
+
   );
 }

@@ -9,7 +9,7 @@ const initialSignupValues = {
   last_name: "",
   email: "",
 };
-export default function Signup() {
+const Signup = () => {
   const [signupValues, setSignupValues] = useState(initialSignupValues);
 
   const inputChange = (e) => {
@@ -40,3 +40,5 @@ export default function Signup() {
     />
   );
 }
+
+export default Signup

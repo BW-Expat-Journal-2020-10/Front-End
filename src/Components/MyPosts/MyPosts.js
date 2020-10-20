@@ -1,9 +1,15 @@
 import React, { useEffect } from "react"
 
+import { axiosWithAuth } from "../../utils/axiosWithAuth"
+
 const MyPosts = () => {
 
+    const currentId = localStorage.getItem("userId")
+
     useEffect(() => {
-        
+        axiosWithAuth()
+        .get("https://expatjournal-api.herokuapp.com/")
+        .then()
     })
 
     return (

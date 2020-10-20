@@ -15,7 +15,8 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Switch>
+      
+        <Switch>
         {/* <PostContext.Provider value={{userData}}> */}
 
         {localStorage.getItem("token") ? (
@@ -31,6 +32,7 @@ function App() {
 
         {/* </PostContext.Provider> */}
       </Switch>
+      
     </div>
   );
   //

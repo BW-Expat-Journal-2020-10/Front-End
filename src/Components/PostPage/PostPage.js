@@ -25,7 +25,7 @@ const PostPage = () => {
     <PostWrapper>
       <button onClick={() => push("/newpost")}>Create a new post</button>
       {publicPosts.map((post, i) => (
-        <div key={i}>
+        <div className='main-post' key={i}>
           <h1>{post.title}</h1>
           <img className="post" src={post.img_url} alt="oops! no_image" />
         </div>
@@ -41,5 +41,16 @@ const PostWrapper = styled.div`
     width: 100%;
     object-fit: contain;
   }
+
+  .main-post{
+    border-bottom:2px solid rgba(5,5,5,.4);
+    border-left:4px outset rgba(5,5,5,.4);
+    border-radius:10px;
+    width:65%;
+    margin:5% auto;
+    padding:8% 10%;
+    background-color:rgba(255,255,255,.8);
+  }
+  
 `;
 export default PostPage;

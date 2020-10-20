@@ -49,7 +49,7 @@ const userId = localStorage.getItem("userId")
             <input
               value={postValues.image}
               name="img_url"
-              type="image"
+              type="text"
               onChange={inputChange}
             />
           </label>

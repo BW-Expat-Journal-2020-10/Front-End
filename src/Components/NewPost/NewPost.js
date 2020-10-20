@@ -55,7 +55,7 @@ const userId = localStorage.getItem("userId")
           </label>
 
           <label>
-            Text
+            Title
             <input
               value={postValues.title}
               name="title"
@@ -65,7 +65,7 @@ const userId = localStorage.getItem("userId")
           </label>
         </div>
         <label>
-            Text
+            Story
             <input
               value={postValues.body}
               name="body"

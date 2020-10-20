@@ -5,10 +5,9 @@ import Signin from "./Components/Signin/Signin";
 import NewPost from "./Components/NewPost/NewPost"
 import PostPage from "./Components/PostPage/PostPage";
 
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import PrivateRoute from "./Components/PrivateRoute"
 
-import { PostContext} from "./context/PostContext";
 import Navbar from "./Components/Navbar/Navbar";
 
 function App() {
@@ -16,7 +15,7 @@ function App() {
   return (
     <div className="App">
     
-      <Router>
+     
         {/* <PrivateRoute exact path="/" component={""} /> */}
         <Navbar />
         <Switch>
@@ -30,7 +29,7 @@ function App() {
         </Switch>
 
 
-      </Router>
+  
     </div>
   );
 }

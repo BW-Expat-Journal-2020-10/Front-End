@@ -51,7 +51,7 @@ const NavContainer = styled.div`
     display: flex;
     /* padding-left:5%; */
     align-items: center;
-    margin: 5% 5% 0 5%;
+    margin: auto;
     background-color: lightgray;
     border-radius: 20px;
     /* box-sizing: border-box; */

@@ -49,7 +49,7 @@ const PostWrapper = styled.div`
     width:65%;
     margin:5% auto;
     padding:8% 10%;
-    background-color:rgba(2,2,2,.1);
+    background-color:rgba(255,255,255,.8);
   }
   
 `;

@@ -28,15 +28,15 @@ const MyPosts = () => {
       <h1>My Posts</h1>
       {myPosts.map((post) => {
         return (
-          <>
+              <div >
           <div onClick={() => push(`/mypost/${post.id}`)}>
-          <div key={post.id} >
+          <div className='main-post'key={post.id} >
             <img src={post.img_url} alt={post.title} />
             <h2>Title: {post.title}</h2>
             <h3>Body: {post.body}</h3>
           </div>
           </div>
-          </>
+          </div>
         );
       })}
     </div>

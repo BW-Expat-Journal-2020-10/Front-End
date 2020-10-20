@@ -5,6 +5,7 @@ import styled from "styled-components";
 const Navbar = () => {
   const welcomeMsg = localStorage.getItem("message");
 
+  
   const { go } = useHistory();
 
   return (

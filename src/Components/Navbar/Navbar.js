@@ -1,4 +1,3 @@
-import { faGolfBall } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import { Link, NavLink, useHistory } from "react-router-dom";
 import styled from "styled-components";
@@ -6,6 +5,7 @@ import styled from "styled-components";
 const Navbar = () => {
   const welcomeMsg = localStorage.getItem("message");
 
+  
   const { go } = useHistory();
 
   return (

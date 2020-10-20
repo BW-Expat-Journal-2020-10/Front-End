@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import DeletePost from './EditDelete/DeletePost'
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 
 const MyPosts = () => {
@@ -30,7 +30,7 @@ const MyPosts = () => {
             <h2>Title: {post.title}</h2>
             <h3>Body: {post.body}</h3>
             <button postId={post.id} postValues={post} >Edit Post</button>
-            <button postId={post.id} >Delete Post</button>
+            <DeletePost postId={post.id} >Delete Post</DeletePost>
           </div>
         );
       })}

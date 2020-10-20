@@ -32,5 +32,4 @@ const MyPost = (props) => {
     )
 }
 
-
 export default MyPost;

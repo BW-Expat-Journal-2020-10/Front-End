@@ -1,10 +1,17 @@
 import React from "react"
 
 export default function SignupForm (props) {
-    const {values, change, submit} = props
+    const {values, change, submit, errors, disabled} = props
 
     return (
        <form className="form container" onSubmit={submit}>
+           <div className="errors">
+               <div>{errors.username}</div>
+               <div>{errors.password}</div>
+               <div>{errors.first_name}</div>
+               <div>{errors.last_name}</div>
+               <div>{errors.email}</div>
+           </div>
            <div className="inputs">
                <label>
                    Username
@@ -58,7 +65,7 @@ export default function SignupForm (props) {
            </div>
 
            <div className="submit">
-               <button>Sign up</button>
+               <button disabled={disabled}>Sign up</button>
            </div>
        </form>
     )

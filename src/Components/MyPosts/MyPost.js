@@ -7,9 +7,9 @@ import { useParams } from "react-router-dom";
 const MyPost = (props) => {
     const [post, setPost] = useState([])
     const {id} = useParams();
+    console.log("POST HERE", post)
 
    useEffect(() => {
-      console.log("this is id", id)
         axiosWithAuth().get(`/posts/${id}`)
         .then(res => {
          setPost(res.data)
@@ -25,7 +25,7 @@ const MyPost = (props) => {
             <img src={post.img_url} alt={post.title} />
             <h2>Title: {post.title}</h2>
             <h3>Body: {post.body}</h3>
-            <EditPost postId={post.id} postValues={post}>Edit Post</EditPost>
+            <EditPost postId={post.id} postValues={post} setPost={setPost} post={post} >Edit Post</EditPost>
             <DeletePost postId={post.id} >Delete Post</DeletePost>
           </div>
         </div>

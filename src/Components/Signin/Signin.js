@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import SignInForm from "./SigninForm";
 import axios from "axios";
 import { PostContext } from "../../context/PostContext";
+import styled from "styled-components";
 
 const initialSignInValues = {
   username: "",
@@ -10,6 +11,7 @@ const initialSignInValues = {
 
 export default function SignIn() {
   const [signInValues, setSignInValues] = useState(initialSignInValues);
+
 
   const inputChange = (e) => {
     setSignInValues({
@@ -31,20 +33,23 @@ export default function SignIn() {
         window.localStorage.setItem("token", res.data.token)
         window.localStorage.setItem("userId", res.data.id)
         window.localStorage.setItem("message", res.data.message)
-        // setUserData(res.data)
-      });
+
+      })
+     .catch((err) => {
+       console.log(err)
+     })
 
     setSignInValues(initialSignInValues);
   };
 
   return (
-
+<>
     <SignInForm
       change={inputChange}
       values={signInValues}
       submit={submitForm}
     />
-
-
+  
+</>
   );
 }

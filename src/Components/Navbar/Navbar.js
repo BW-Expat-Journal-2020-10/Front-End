@@ -3,48 +3,7 @@ import { Link, NavLink, useHistory } from "react-router-dom";
 import styled from "styled-components";
 
 
-const NavContainer = styled.div`
-    height: 70px;
-    display: flex;
-    padding-left: 219px;
-    align-items: center;
-    margin: 10px 10px 0 10px;
-    background-color: lightgray;
-    border-radius: 20px;
 
-    h1 {
-        color: green;
-        font-size: 1.5rem;
-        font-weight: 500;
-        letter-spacing: 0.15rem;
-        line-height: 1;
-        margin: 2rem;
-    }
-    .nav {
-
-        display: flex;
-        margin: 20px;
-        
-        a {
-          color: black;
-            text-decoration: none;
-            margin: 20px;
-
-            &:hover{
-              color: gray;
-          }
-        }
-        
-        a.active{
-          color: gray;
-          background: lightgray;
-      }
-   }
-   .logout {
-     color: red;
-   }
-}
-`;
 
 const Navbar = () => {
   const welcomeMsg = localStorage.getItem("message");
@@ -54,7 +13,7 @@ const Navbar = () => {
   return (
     <NavContainer>
       <h1>
-        <i className="fab fa-pagelines"></i> 
+       Dispatch
       </h1>
       <div className="nav">
         {!localStorage.getItem("token") ? (
@@ -79,14 +38,57 @@ const Navbar = () => {
             SignUp
           </NavLink>
         ) : null}
-        <a href=" https://watermyplantsbw4.netlify.app">
-          <span>About Us</span>
-        </a>
-
-        <NavLink to="/myplant">Home</NavLink>
+        
+        <NavLink to="/homepage">Home</NavLink>
       </div>
       <h1>{welcomeMsg}</h1>
     </NavContainer>
   );
 };
+
+const NavContainer = styled.div`
+    height: 70px;
+    display: flex;
+    padding-left: 219px;
+    align-items: center;
+    margin: 10px 10px 0 10px;
+    background-color: lightgray;
+    border-radius: 20px;
+    object-fit: contain;
+
+    h1 {
+        color: gray;
+        font-size: 1.5rem;
+        font-weight: 500;
+        letter-spacing: 0.15rem;
+        line-height: 1;
+        margin: 2rem;
+    }
+    .nav {
+       
+        display: flex;
+        margin: 20px;
+        
+        a {
+
+          color: black;
+            text-decoration: none;
+            margin: 20px;
+
+            &:hover{
+              color: gray;
+          }
+        }
+        
+        a.active{
+          color: gray;
+          background: lightgray;
+      }
+   }
+   .logout {
+     color: red;
+   }
+}
+`;
+
 export default Navbar;

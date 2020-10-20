@@ -46,36 +46,41 @@ const Navbar = () => {
 
 const NavContainer = styled.div`
     height: 70px;
+    width:85%;
     display: flex;
-    padding-left: 219px;
+    /* padding-left:5%; */
     align-items: center;
-    margin: 10px 10px 0 10px;
+    margin: auto;
     background-color: lightgray;
     border-radius: 20px;
-    
-
+    /* box-sizing: border-box; */
+ /* border:4px solid pink; */
     h1 {
         color: gray;
         font-size: 1.5rem;
         font-weight: 500;
         letter-spacing: 0.15rem;
         line-height: 1;
-        margin: 2rem;
+        margin-left:5%;
     }
-    .nav {   
-        display: flex;     
+    .nav {  display:flex;
+       flex-flow:row;   
+        width:80%; 
+        justify-content:center; 
         align-items: center;
-        
+        box-sizing:border-box;
         a {
+          display:flex;
+          
          text-align: center;
-            width: 100%;
+         width:10%;
             padding: 0px 25px;
            color: black;
             text-decoration: none;
             margin: 20px;
 
             &:hover{
-              color: gray;
+              color: whitesmoke;
           }
         }
         

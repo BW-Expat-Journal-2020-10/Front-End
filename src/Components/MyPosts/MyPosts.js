@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 
 const MyPosts = () => {
   const [myPosts, setMyPosts] = useState([]);
-  const {push} = useHistory();
+  const { push } = useHistory();
 
   useEffect(() => {
     const currentId = localStorage.getItem("userId");
@@ -26,15 +26,13 @@ const MyPosts = () => {
       <h1>My Posts</h1>
       {myPosts.map((post) => {
         return (
-          <>
           <div onClick={() => push(`/mypost/${post.id}`)}>
-          <div key={post.id} >
-            <img src={post.img_url} alt={post.title} />
-            <h2>Title: {post.title}</h2>
-            <h3>Body: {post.body}</h3>
+            <div className="main-post" key={post.id}>
+              <h2>Title: {post.title}</h2>
+              <img src={post.img_url} alt={post.title} className="post" />
+              <h3>Body: {post.body}</h3>
+            </div>
           </div>
-          </div>
-          </>
         );
       })}
     </div>

@@ -23,24 +23,16 @@ const PostPage = () => {
       .catch((err) => console.log(err));
   };
   return (
-    <PostWrapper>
+    <div>
       <button onClick={() => push("/newpost")}>Create a new post</button>
       {publicPosts.map((post, i) => (
-        <div key={i}>
-          <h1>{post.title}</h1>
+        <div className='main-post' key={i}>
+          <h2>{post.title}</h2>
           <img className="post" src={post.img_url} alt="oops! no_image" />
         </div>
       ))}
-    </PostWrapper>
+    </div>
   );
 };
 
-const PostWrapper = styled.div`
-  height: auto;
-
-  .post {
-    width: 100%;
-    object-fit: contain;
-  }
-`;
 export default PostPage;

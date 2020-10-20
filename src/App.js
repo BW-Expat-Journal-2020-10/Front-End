@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./App.css";
-import Signup from "./Components/Singup/Signup";
+import Signup from "./Components/Signup/Signup";
 import Signin from "./Components/Signin/Signin";
 import NewPost from "./Components/NewPost/NewPost";
 import PostPage from "./Components/PostPage/PostPage";
+import MyPosts from "./Components/MyPosts/MyPosts"
 
 import { Route, Switch } from "react-router-dom";
 import PrivateRoute from "./Components/PrivateRoute";
@@ -25,6 +26,7 @@ function App() {
         <Route path="/signup" component={Signup} />
         <Route path="/newpost" component={NewPost} />
         <PrivateRoute path="/homepage" component={PostPage} />
+        <PrivateRoute path="/myposts" component={MyPosts} />
 
         {/* </PostContext.Provider> */}
       </Switch>

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import DeletePost from './EditDelete/DeletePost'
+import DeletePost from "./EditDelete/DeletePost";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import EditPost from "./EditDelete/EditPost";
 import { useHistory } from "react-router-dom";
 
 const MyPosts = () => {
   const [myPosts, setMyPosts] = useState([]);
-  const {push} = useHistory();
+  const { push } = useHistory();
 
   useEffect(() => {
     const currentId = localStorage.getItem("userId");
@@ -28,14 +28,12 @@ const MyPosts = () => {
       <h1>My Posts</h1>
       {myPosts.map((post) => {
         return (
-              <div >
           <div onClick={() => push(`/mypost/${post.id}`)}>
-          <div className='main-post'key={post.id} >
-            <img src={post.img_url} alt={post.title} />
-            <h2>Title: {post.title}</h2>
-            <h3>Body: {post.body}</h3>
-          </div>
-          </div>
+            <div className="main-post" key={post.id}>
+              <h2>Title: {post.title}</h2>
+              <img src={post.img_url} alt={post.title} className="post" />
+              <h3>Body: {post.body}</h3>
+            </div>
           </div>
         );
       })}

@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { axiosWithAuth } from "../../../utils/axiosWithAuth";
 
 export default function EditPost() {
   const currentId = localStorage.getItem("userId");
-  const [postValues, setPostValues] = useEffect();
+  const [postValues, setPostValues] = useState("");
 
   const change = (e) => {
     setPostValues({

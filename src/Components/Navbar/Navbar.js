@@ -1,9 +1,7 @@
+import { faGolfBall } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import { Link, NavLink, useHistory } from "react-router-dom";
 import styled from "styled-components";
-
-
-
 
 const Navbar = () => {
   const welcomeMsg = localStorage.getItem("message");
@@ -12,9 +10,7 @@ const Navbar = () => {
 
   return (
     <NavContainer>
-      <h1>
-       Dispatch
-      </h1>
+      <h1>Dispatch</h1>
       <div className="nav">
         {!localStorage.getItem("token") ? (
           <NavLink className="link" activeClassName="active" to="/login">
@@ -26,8 +22,8 @@ const Navbar = () => {
             to="/"
             onClick={() => {
               localStorage.clear();
-
-              go(0);
+ 
+            go(0);
             }}
           >
             Logout
@@ -38,9 +34,11 @@ const Navbar = () => {
             SignUp
           </NavLink>
         ) : null}
-        
+
         <NavLink to="/homepage">Home</NavLink>
-        <NavLink className="link" to="/myposts">My Posts </NavLink>
+        <NavLink className="link" to="/myposts">
+          My Posts{" "}
+        </NavLink>
       </div>
       <h1>{welcomeMsg}</h1>
     </NavContainer>

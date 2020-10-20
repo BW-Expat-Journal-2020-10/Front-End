@@ -3,6 +3,7 @@ import SignInForm from "./SigninForm";
 import axios from "axios";
 import { PostContext } from "../../context/PostContext";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
 const initialSignInValues = {
   username: "",
@@ -10,6 +11,7 @@ const initialSignInValues = {
 };
 
 export default function SignIn() {
+  const { push, go } = useHistory();
   const [signInValues, setSignInValues] = useState(initialSignInValues);
 
 
@@ -33,7 +35,8 @@ export default function SignIn() {
         window.localStorage.setItem("token", res.data.token)
         window.localStorage.setItem("userId", res.data.id)
         window.localStorage.setItem("message", res.data.message)
-
+        push("/homepage")
+        go(0);
       })
      .catch((err) => {
        console.log(err)

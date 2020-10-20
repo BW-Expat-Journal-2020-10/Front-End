@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import axiosWithAuth from "../../../utils/axiosWithAuth";
+import { axiosWithAuth } from "../../../utils/axiosWithAuth";
 
 export default function EditPost() {
   const currentId = localStorage.getItem("userId");
@@ -12,7 +12,7 @@ export default function EditPost() {
     });
   };
 
-  const submit = () => {
+  const submit = (e) => {
     e.preventDefault();
     axiosWithAuth()
       .post("/posts", postValues)

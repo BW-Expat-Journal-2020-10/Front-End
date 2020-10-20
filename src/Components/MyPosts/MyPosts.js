@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import DeletePost from './EditDelete/DeletePost'
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
-
+import EditPost from "./EditDelete/EditPost";
 const MyPosts = () => {
   const [myPosts, setMyPosts] = useState([]);
 
@@ -29,7 +29,7 @@ const MyPosts = () => {
             <img src={post.img_url} alt={post.title} />
             <h2>Title: {post.title}</h2>
             <h3>Body: {post.body}</h3>
-            <button postId={post.id} postValues={post} >Edit Post</button>
+            <EditPost postId={post.id} postValues={post} >Edit Post</EditPost>
             <DeletePost postId={post.id} >Delete Post</DeletePost>
           </div>
         );

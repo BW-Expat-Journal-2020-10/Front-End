@@ -40,6 +40,7 @@ const Navbar = () => {
         ) : null}
         
         <NavLink to="/homepage">Home</NavLink>
+        <NavLink className="link" to="/myposts">My Posts </NavLink>
       </div>
       <h1>{welcomeMsg}</h1>
     </NavContainer>
@@ -54,7 +55,7 @@ const NavContainer = styled.div`
     margin: 10px 10px 0 10px;
     background-color: lightgray;
     border-radius: 20px;
-    object-fit: contain;
+    box-sizing: border-box;
 
     h1 {
         color: gray;
@@ -64,14 +65,15 @@ const NavContainer = styled.div`
         line-height: 1;
         margin: 2rem;
     }
-    .nav {
-       
-        display: flex;
-        margin: 20px;
+    .nav {   
+        display: flex;     
+        align-items: center;
         
         a {
-
-          color: black;
+         text-align: center;
+            width: 100%;
+            padding: 0px 25px;
+           color: black;
             text-decoration: none;
             margin: 20px;
 

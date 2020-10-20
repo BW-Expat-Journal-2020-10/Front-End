@@ -1,22 +1,39 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react";
 
-import { axiosWithAuth } from "../../utils/axiosWithAuth"
+import { axiosWithAuth } from "../../utils/axiosWithAuth";
 
 const MyPosts = () => {
+  const [myPosts, setMyPosts] = useState([]);
 
-    const currentId = localStorage.getItem("userId")
+  useEffect(() => {
+    const currentId = localStorage.getItem("userId");
+    axiosWithAuth()
+      .get(
+        `https://expatjournal-api.herokuapp.com/api/users/${currentId}/posts`
+      )
+      .then((res) => {
+        console.log(res.data);
+        setMyPosts(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
-    useEffect(() => {
-        axiosWithAuth()
-        .get("https://expatjournal-api.herokuapp.com/")
-        .then()
-    })
+  return (
+    <div>
+      <h1>My Posts</h1>
+      {myPosts.map((post) => {
+        return (
+          <div key={post.id} >
+            <img src={post.img_url} alt={post.title} />
+            <h2>Title: {post.title}</h2>
+            <h3>Body: {post.body}</h3>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
-    return (
-        <div>
-            <h1>Hello</h1>
-        </div>
-    )
-}
-
-export default MyPosts
+export default MyPosts;

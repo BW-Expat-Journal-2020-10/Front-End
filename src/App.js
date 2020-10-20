@@ -20,9 +20,9 @@ function App() {
 
         {localStorage.getItem("token") ? (
           <PrivateRoute exact path="/" component={PostPage} />
-        ) : (
+         ) : ( 
           <Route exact path="/login" component={Signin} />
-        )}
+         )} 
         <Route path="/signup" component={Signup} />
         <Route path="/newpost" component={NewPost} />
         <PrivateRoute path="/homepage" component={PostPage} />

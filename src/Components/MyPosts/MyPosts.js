@@ -29,6 +29,8 @@ const MyPosts = () => {
             <img src={post.img_url} alt={post.title} />
             <h2>Title: {post.title}</h2>
             <h3>Body: {post.body}</h3>
+            <button postId={post.id} >Edit Post</button>
+            <button postId={post.id} >Delete Post</button>
           </div>
         );
       })}

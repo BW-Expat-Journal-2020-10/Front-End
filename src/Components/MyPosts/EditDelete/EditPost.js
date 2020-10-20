@@ -3,10 +3,12 @@ import { axiosWithAuth } from "../../../utils/axiosWithAuth";
 
 export default function EditPost(props) {
 
+  const { postValues, postId, setPost, post } = props
+
   const initialFormValues = {
-    title: props.postValues.title,
-    body: props.postValues.body,
-    img_url: props.postValues.img_url,
+    title: postValues.title,
+    body: postValues.body,
+    img_url: postValues.img_url,
   };
 
   const [formValues, setformValues] = useState(initialFormValues);
@@ -20,10 +22,19 @@ export default function EditPost(props) {
 
   const submit = (e) => {
     e.preventDefault();
+
+    console.log("POST", post)
     axiosWithAuth()
-      .put(`/posts/${props}`, formValues)
+      .put(`/posts/${postId}`, formValues)
       .then((res) => {
         console.log(res);
+        console.log("POST IN .THEN", post)
+        setPost({
+          ...post,
+          img_url: res.data.img_url,
+          title: res.data.title,
+          body: res.data.body,
+        })
       })
       .catch((err) => console.log(err));
   };
@@ -33,7 +44,7 @@ export default function EditPost(props) {
       Edit Post
       <div className="inputs">
         <input
-          value={formValues}
+          value={formValues.img_url}
           placeholder="img_url"
           name="img_url"
           type="text"
@@ -41,7 +52,7 @@ export default function EditPost(props) {
         />
 
         <input
-          value={formValues}
+          value={formValues.title}
           placeholder="title"
           name="title"
           type="text"
@@ -49,7 +60,7 @@ export default function EditPost(props) {
         />
 
         <input
-          value={formValues}
+          value={formValues.body}
           placeholder="body"
           name="body"
           type="text"

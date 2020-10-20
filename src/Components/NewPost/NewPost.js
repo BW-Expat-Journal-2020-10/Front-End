@@ -3,7 +3,6 @@ import { PostContext } from "../../context/PostContext";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 
 
-
 const NewPost = () => {
 
 const userId = localStorage.getItem("userId")

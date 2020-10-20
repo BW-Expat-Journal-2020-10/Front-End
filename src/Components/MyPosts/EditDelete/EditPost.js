@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { axiosWithAuth } from "../../../utils/axiosWithAuth";
 
-export default function EditPost() {
-  const currentId = localStorage.getItem("userId");
-  const [postValues, setPostValues] = useState("");
+export default function EditPost(props) {
+
+  const initialFormValues = {
+    title: props.postValues.title,
+    body: props.postValues.body,
+    img_url: props.postValues.img_url,
+  };
+
+  const [formValues, setformValues] = useState(initialFormValues);
 
   const change = (e) => {
-    setPostValues({
-      ...postValues,
+    setformValues({
+      ...formValues,
       [e.target.name]: e.target.value,
     });
   };
@@ -15,7 +21,7 @@ export default function EditPost() {
   const submit = (e) => {
     e.preventDefault();
     axiosWithAuth()
-      .post("/posts", postValues)
+      .put(`/posts/${props}`, formValues)
       .then((res) => {
         console.log(res);
       })
@@ -27,15 +33,23 @@ export default function EditPost() {
       Edit Post
       <div className="inputs">
         <input
-          value={postValues}
-          placeholder="image"
-          name="image"
+          value={formValues}
+          placeholder="img_url"
+          name="img_url"
           type="text"
           onChange={change}
         />
 
         <input
-          value={postValues}
+          value={formValues}
+          placeholder="title"
+          name="title"
+          type="text"
+          onChange={change}
+        />
+
+        <input
+          value={formValues}
           placeholder="body"
           name="body"
           type="text"

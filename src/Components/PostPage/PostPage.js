@@ -4,6 +4,7 @@ import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import styled from "styled-components";
 
 import { useHistory } from "react-router-dom";
+
 const PostPage = () => {
   const [publicPosts, setPublicPosts] = useState([]);
   const { push } = useHistory();

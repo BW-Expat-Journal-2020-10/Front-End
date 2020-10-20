@@ -1,4 +1,3 @@
-import { faGolfBall } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import { Link, NavLink, useHistory } from "react-router-dom";
 import styled from "styled-components";
@@ -53,7 +52,7 @@ const NavContainer = styled.div`
     margin: 10px 10px 0 10px;
     background-color: lightgray;
     border-radius: 20px;
-    box-sizing: border-box;
+    
 
     h1 {
         color: gray;

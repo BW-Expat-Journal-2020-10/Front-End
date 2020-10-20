@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import DeletePost from './EditDelete/DeletePost'
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
-import EditPost from "./EditDelete/EditPost";
 import { useHistory } from "react-router-dom";
 
 const MyPosts = () => {

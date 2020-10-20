@@ -4,7 +4,7 @@ import DeletePost from './EditDelete/DeletePost';
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import { useParams } from "react-router-dom";
 
-const MyPost = (props) => {
+const MyPost = () => {
     const [post, setPost] = useState([])
     const {id} = useParams();
     console.log("POST HERE", post)

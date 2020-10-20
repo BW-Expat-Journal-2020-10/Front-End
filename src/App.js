@@ -8,7 +8,7 @@ import MyPosts from "./Components/MyPosts/MyPosts"
 
 import { Route, Switch } from "react-router-dom";
 import PrivateRoute from "./Components/PrivateRoute";
-
+import MyPost from "../src/Components/MyPosts/MyPost";
 import Navbar from "./Components/Navbar/Navbar";
 
 function App() {
@@ -27,6 +27,7 @@ function App() {
         <Route path="/newpost" component={NewPost} />
         <PrivateRoute path="/homepage" component={PostPage} />
         <PrivateRoute path="/myposts" component={MyPosts} />
+        <Route path="/mypost/:id" component={MyPost} />
 
         {/* </PostContext.Provider> */}
       </Switch>

@@ -51,6 +51,7 @@ const userId = localStorage.getItem("userId")
               name="img_url"
               type="text"
               onChange={inputChange}
+              required
             />
           </label>
 

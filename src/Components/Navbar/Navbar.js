@@ -50,7 +50,6 @@ const Navbar = () => {
 };
 
 const NavContainer = styled.div`
-  height: auto;
   width: 100%;
   display: flex;
   justify-content: center;

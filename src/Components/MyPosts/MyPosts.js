@@ -26,13 +26,11 @@ const MyPosts = () => {
       </button>
       {myPosts.map((post) => {
         return (
-          <div onClick={() => push(`/mypost/${post.id}`)} key={post.id}>
-            <div className="main-post" key={post.id}>
+            <div className="main-post" key={post.id} onClick={() => push(`/mypost/${post.id}`)}>
               <h2>Title: {post.title}</h2>
               <img src={post.img_url} alt={post.title} className="post" />
-              <h3>Body: {post.body}</h3>
+              <h3>Story: {post.body}</h3>
             </div>
-          </div>
         );
       })}
     </div>

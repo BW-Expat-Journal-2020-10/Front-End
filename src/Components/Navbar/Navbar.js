@@ -5,11 +5,12 @@ import styled from "styled-components";
 const Navbar = () => {
   const welcomeMsg = localStorage.getItem("message");
 
-  
+
   const { go } = useHistory();
 
   return (
     <NavContainer>
+      <div className="wrapper">
       <h1>Dispatch</h1>
       <div className="nav">
         {!localStorage.getItem("token") ? (
@@ -26,6 +27,7 @@ const Navbar = () => {
             go(0);
             }}
           >
+              
             Logout
           </Link>
         )}
@@ -41,21 +43,32 @@ const Navbar = () => {
         </NavLink>
       </div>
       <h1>{welcomeMsg}</h1>
+      </div>
     </NavContainer>
+    
   );
 };
 
 const NavContainer = styled.div`
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+    .wrapper{
     height: 70px;
     width:85%;
     display: flex;
     /* padding-left:5%; */
     align-items: center;
-    margin: auto;
     background-color: lightgray;
     border-radius: 20px;
     /* box-sizing: border-box; */
- /* border:4px solid pink; */
+
+   
+    position: fixed;
+    justify-content: center;
+    }
     h1 {
         color: gray;
         font-size: 1.5rem;
@@ -64,7 +77,9 @@ const NavContainer = styled.div`
         line-height: 1;
         margin-left:5%;
     }
-    .nav {  display:flex;
+    .nav {  
+     
+      display:flex;
        flex-flow:row;   
         width:80%; 
         justify-content:center; 

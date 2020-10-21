@@ -41,11 +41,12 @@ const SigninWrapper = styled.div`
    display: flex;
    align-items: center;
    justify-content: center;
-
+   backdrop-filter: drop-shadow(4px 4px 10px blue);
    .inputs{
      display: flex;
      flex-direction: column;
      justify-content: space-between;
+     backdrop-filter: drop-shadow(4px 4px 10px blue);
    }
 
    

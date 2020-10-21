@@ -12,7 +12,7 @@ const MyPosts = () => {
     axiosWithAuth()
       .get(`/api/users/${currentId}/posts`)
       .then((res) => {
-        setMyPosts(res.data);
+        setMyPosts(res.data.reverse());
       })
       .catch((err) => {
         console.log(err);

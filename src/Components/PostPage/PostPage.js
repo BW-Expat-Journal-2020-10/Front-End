@@ -18,7 +18,7 @@ const PostPage = () => {
       .get("/api/posts")
       .then((res) => {
         console.log(res);
-        setPublicPosts(res.data);
+        setPublicPosts(res.data.reverse());
       })
       .catch((err) => console.log(err));
   };

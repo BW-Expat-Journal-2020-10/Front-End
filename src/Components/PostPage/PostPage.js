@@ -35,8 +35,7 @@ const PostPage = () => {
   return (
     <div>
       {publicPosts.map((post, i) => (
-        <div onClick={() => push(`/post/${post.id}`)} key={post.id}>
-        <div className="main-post" key={i}>
+        <div className="main-post" onClick={() => push(`/post/${post.id}`)} key={post.id}>
           
           <div className="post-header">
             <h2>Title: {post.title}</h2>
@@ -50,7 +49,6 @@ const PostPage = () => {
           <img className="post" src={post.img_url} alt="oops! no_image" />
           <p>{post.body}</p>
   
-        </div>
         </div>
       ))}
     </div>

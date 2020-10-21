@@ -1,8 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import SignInForm from "./SigninForm";
 import axios from "axios";
-import { PostContext } from "../../context/PostContext";
-import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 
 const initialSignInValues = {

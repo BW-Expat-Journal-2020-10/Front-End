@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import Signup from "./Components/Signup/Signup";
 import Signin from "./Components/Signin/Signin";
@@ -30,7 +30,6 @@ function App() {
       </Switch>
     </div>
   );
-  //
 }
 
 export default App;

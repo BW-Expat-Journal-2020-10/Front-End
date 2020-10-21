@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
-import { PostContext } from "../../context/PostContext";
+import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
-import styled from "styled-components";
 
 import { useHistory } from "react-router-dom";
+
 const PostPage = () => {
   const [publicPosts, setPublicPosts] = useState([]);
   const { push } = useHistory();

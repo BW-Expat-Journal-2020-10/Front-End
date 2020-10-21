@@ -18,11 +18,11 @@ function App() {
       <Navbar />
       <div className="ghost"></div>
       <Switch>
-        <Route exact path="/" component={Signin} />
+       
         {localStorage.getItem("token") ? (
-          <PrivateRoute exact path="/" component={PostPage} />
-        ) : (
-          <Route exact path="/login" component={Signin} />
+          <Route exact path="/" component={PostPage} />
+        ) :  (
+          <Route path="/" component={Signin} />
         )}
         <Route path="/signup" component={Signup} />
         <Route path="/newpost" component={NewPost} />

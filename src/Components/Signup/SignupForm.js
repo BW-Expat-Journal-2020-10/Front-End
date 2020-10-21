@@ -1,10 +1,14 @@
-import React from "react"
+import React from "react";
+import styled from "styled-components";
 
-export default function SignupForm (props) {
+function SignupForm (props) {
     const {values, change, submit, errors, disabled} = props
 
     return (
+        <SignupWrapper>
+            
        <form className="form container" onSubmit={submit}>
+       <h1>SIGN UP</h1>
            <div className="errors">
                <div>{errors.username}</div>
                <div>{errors.password}</div>
@@ -14,7 +18,9 @@ export default function SignupForm (props) {
            </div>
            <div className="inputs">
                <label>
-                   Username
+                  <div className="label">
+                  <i class="fas fa-user"></i>Username:
+                   </div>
                    <input 
                     value={values.username}
                     name="username"
@@ -24,7 +30,9 @@ export default function SignupForm (props) {
                </label>
 
                <label>
-                   Password
+                   <div className="label">
+                   <i className="fas fa-lock"></i> Password:
+                   </div>
                    <input 
                     value={values.password}
                     name="password"
@@ -34,7 +42,9 @@ export default function SignupForm (props) {
                </label>
 
                <label>
-                   First Name
+                <div className="label">
+                   First Name:
+                   </div>
                    <input 
                     value={values.first_name}
                     name="first_name"
@@ -44,7 +54,9 @@ export default function SignupForm (props) {
                </label>
 
                <label>
-                   Last Name
+                 <div className="label">
+                   Last Name:
+                   </div>
                    <input 
                     value={values.last_name}
                     name="last_name"
@@ -54,7 +66,9 @@ export default function SignupForm (props) {
                </label>
 
                <label>
-                   Email
+               <div className="label">
+               <i class="fas fa-envelope"></i> Email:
+                </div>
                    <input 
                     value={values.email}
                     name="email"
@@ -68,5 +82,59 @@ export default function SignupForm (props) {
                <button disabled={disabled} className="inner-button">Sign up</button>
            </div>
        </form>
+       </SignupWrapper>
     )
+};
+
+const SignupWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+h1{
+  font-family: "Karma", sans-serif;
 }
+
+  .inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .label{
+      box-sizing: border-box;
+    height: auto;
+    text-align: left;
+    margin: 0 0 0 60px;
+    i{
+      margin-right: 2px;
+    }
+  }
+
+  .new-account {
+    margin-top: 20px;
+    a {
+      text-decoration: none;
+      color: black;  
+      font-size: 1.2rem;
+    }
+  }
+
+  input {
+    font-size: 20px;
+    outline: 0;
+    transition: all 0.9s;
+    border-radius: 2%;
+    background-color: lightgray;
+    padding: 15px;
+    border: 1px solid black;
+
+    :focus{
+      background-color: white;
+      border: none
+    }
+  }
+
+`;
+
+export default SignupForm;

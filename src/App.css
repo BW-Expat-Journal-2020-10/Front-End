@@ -67,8 +67,7 @@ h3 {
 }
 
 .submit {
-  width: 20%;
-  margin: auto;
+  margin-top: 20px;
 }
 .inputs {
   display: flex;
@@ -77,10 +76,20 @@ h3 {
 }
 
 .inner-button {
+  width: 100%;
+  padding: 10px;
   background-color: rgba(0, 0, 255, 0.13);
-  padding: 5%;
-  border: 2px solid black;
-  border: 4px outset rgba(0, 0, 255, 0.13);
+  cursor: pointer;
+  border-radius: 2%;
+  font-size: 20px;
+  font-family: "Bebas Neue", cursive;
+}
+
+.inner-button:hover{
+  border: 1px solid black;
+  background-color:rgba(0, 0, 255, 0.26);
+
+
 }
 
 .post-button {

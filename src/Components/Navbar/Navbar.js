@@ -53,27 +53,21 @@ const Navbar = () => {
 };
 
 const NavContainer = styled.div`
-  height: auto;
-  width: 100%;
+  width: 85%;
   display: flex;
   justify-content: center;
-
-    .wrapper{
-    height: 70px;
-    width:85%;
-    display: flex;
-    /* padding-left:5%; */
-    align-items: center;
-    background-color: lightgray;
-    border-radius: 20px;
-    /* box-sizing: border-box; */
-
- /* border:4px solid pink; */
+  background-color: lightgray;
+  margin:auto;
+  border-radius:10px;
+  border-bottom:4px solid black;
+  border-left:6px outset black;
+  
+    
+  
     .logo-img {
       width:15%;
           display:flex;
         margin-left:5%;
-        
     }
     .logo{
       margin:auto;

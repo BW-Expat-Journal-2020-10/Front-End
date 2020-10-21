@@ -4,5 +4,8 @@ export default yup.object().shape({
     img_url: yup
         .string()
         .required("image url is required.")
-        .url()
+        .url(),
+    title: yup
+        .string() 
+        .required("a title is required"),
 })

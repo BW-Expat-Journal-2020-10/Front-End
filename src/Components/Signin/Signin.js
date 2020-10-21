@@ -29,7 +29,6 @@ export default function SignIn() {
 
       )
       .then((res) => {
-        console.log("Login request", res.data);
         window.localStorage.setItem("token", res.data.token)
         window.localStorage.setItem("userId", res.data.id)
         window.localStorage.setItem("message", res.data.message)

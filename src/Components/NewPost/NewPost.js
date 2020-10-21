@@ -2,9 +2,13 @@ import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import * as yup from 'yup'
 import schema from './validation/newPostFormSchema'
+import { useHistory } from 'react-router-dom'
 
 const NewPost = () => {
   const userId = localStorage.getItem("userId");
+
+  const { push } = useHistory()
+
   const initialPostValues = {
     user_id: parseInt(userId),
     title: "",
@@ -44,12 +48,10 @@ const NewPost = () => {
 
   const submitForm = (e) => {
     e.preventDefault();
-    console.log("submitted");
-    console.log(postValues);
     axiosWithAuth()
       .post("/posts", postValues)
       .then((res) => {
-        console.log(res);
+        push("/myposts")
       })
       .catch((err) => console.log(err));
   };

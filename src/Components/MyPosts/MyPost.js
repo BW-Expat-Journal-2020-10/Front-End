@@ -8,7 +8,6 @@ import { useParams } from "react-router-dom";
 const MyPost = (props) => {
   const [post, setPost] = useState([]);
   const { id } = useParams();
-  console.log("POST HERE", post);
 
 
   useEffect(() => {

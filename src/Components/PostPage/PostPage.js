@@ -10,9 +10,12 @@ const PostPage = () => {
 
   useEffect(() => {
     fetchPosts();
-    fetchNames();
+    // fetchNames();
   }, []);
 
+  useEffect(() => {
+    fetchNames();
+  }, [])
   const fetchPosts = () => {
     axiosWithAuth()
       .get("/api/posts")

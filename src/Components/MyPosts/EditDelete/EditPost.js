@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { axiosWithAuth } from "../../../utils/axiosWithAuth";
 
 export default function EditPost(props) {
-
-  const { postValues, postId, setPost, post } = props
+  const { postValues, postId, setPost, post } = props;
 
   const initialFormValues = {
     title: postValues.title,
@@ -23,18 +22,15 @@ export default function EditPost(props) {
   const submit = (e) => {
     e.preventDefault();
 
-    console.log("POST", post)
     axiosWithAuth()
       .put(`/posts/${postId}`, formValues)
       .then((res) => {
-        console.log(res);
-        console.log("POST IN .THEN", post)
         setPost({
           ...post,
           img_url: res.data.img_url,
           title: res.data.title,
           body: res.data.body,
-        })
+        });
       })
       .catch((err) => console.log(err));
   };

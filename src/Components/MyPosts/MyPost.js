@@ -20,18 +20,16 @@ const MyPost = () => {
 
   return (
     <div>
-      <h1>My post</h1>
       <div key={post.id} className="my-post">
         <h2>Title: {post.title}</h2>
         <img src={post.img_url} alt={post.title} />
-        <h3>Body: {post.body}</h3>
         <EditPost
           postId={post.id}
           postValues={post}
           setPost={setPost}
           post={post}
         >
-          Edit Post
+          <h3>Edit Post</h3>
         </EditPost>
         <DeletePost postId={post.id}>Delete Post</DeletePost>
       </div>

@@ -20,10 +20,11 @@ function App() {
       <Switch>
        
         {localStorage.getItem("token") ? (
-          <Route exact path="/" component={PostPage} />
+          <PrivateRoute exact path="/" component={PostPage} />
         ) :  (
-          <Route path="/" component={Signin} />
+          <Route exact path="/" component={Signin} />
         )}
+        <Route exact path="/login" component={Signin} />
         <Route path="/signup" component={Signup} />
         <Route path="/newpost" component={NewPost} />
         <PrivateRoute path="/homepage" component={PostPage} />

@@ -163,3 +163,7 @@ h3 {
 .edit-button:hover {
   cursor: pointer;
 }
+
+.ghost {
+  height: 10vh;
+}

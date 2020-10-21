@@ -59,7 +59,6 @@ const Signup = () => {
         signupValues
       )
       .then((res) => {
-        console.log(res.data);
       });
     setSignupValues(initialSignupValues);
   };

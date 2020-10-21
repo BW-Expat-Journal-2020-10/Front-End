@@ -17,7 +17,6 @@ const PostPage = () => {
     axiosWithAuth()
       .get("/posts")
       .then((res) => {
-        console.log("GETTING POSTS", res);
         setPublicPosts(res.data);
       })
       .catch((err) => console.log(err));

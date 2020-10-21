@@ -13,7 +13,6 @@ const MyPosts = () => {
         `https://expatjournal-api.herokuapp.com/api/users/${currentId}/posts`
       )
       .then((res) => {
-        console.log(res.data);
         setMyPosts(res.data);
       })
       .catch((err) => {

@@ -7,9 +7,9 @@ export default function SignInForm(props) {
 
   return (
     <SigninWrapper>
-    <form className="container" onSubmit={submit}>
+    <form className="form container" onSubmit={submit}>
       <div className="inputs">
-
+<label>
           <input
             value={values.username}
             placeholder="username"
@@ -17,16 +17,16 @@ export default function SignInForm(props) {
             type="text"
             onChange={change}
           />
-
+</label>
+<label>
           <input
-          style={{width: "10rem", height: "40px"}}
             value={values.password}
             placeholder={ <i className="fas fa-lock"></i> && "Password"}
             name="password"
             type="text"
             onChange={change}
           />
-
+</label>
       </div>
       <div className="submit">
           <button>Sign In</button>

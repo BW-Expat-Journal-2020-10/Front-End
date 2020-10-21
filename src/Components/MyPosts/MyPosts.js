@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 
 const MyPosts = () => {
   const [myPosts, setMyPosts] = useState([]);
+  const [users, setUsers] = useState([])
   const { push } = useHistory();
 
   useEffect(() => {
@@ -11,6 +12,17 @@ const MyPosts = () => {
     axiosWithAuth()
       .get(
         `https://expatjournal-api.herokuapp.com/api/users/${currentId}/posts`
+      )
+      .then((res) => {
+        console.log(res.data);
+        setMyPosts(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+      axiosWithAuth()
+      .get(
+        `https://expatjournal-api.herokuapp.com/api/users`
       )
       .then((res) => {
         console.log(res.data);

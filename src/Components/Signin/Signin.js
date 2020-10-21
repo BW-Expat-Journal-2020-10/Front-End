@@ -22,11 +22,11 @@ export default function SignIn() {
 
   const submitForm = (e) => {
     e.preventDefault();
+    console.log("Signing in", signInValues)
     axiosWithAuth()
       .post(
         "/api/auth/login",
         signInValues
-
       )
       .then((res) => {
         window.localStorage.setItem("token", res.data.token)

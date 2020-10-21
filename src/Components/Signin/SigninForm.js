@@ -11,7 +11,7 @@ export default function SignInForm(props) {
         <div className="inputs">
           <label>
             <div className="label">
-          <i class="fas fa-user"></i>Username:
+          <i className="fas fa-user"></i>Username:
           </div>
             <input
               value={values.username}

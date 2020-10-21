@@ -12,8 +12,11 @@ const MyPosts = () => {
     axiosWithAuth()
       .get(`/api/users/${currentId}/posts`)
       .then((res) => {
-        console.log()
-        setMyPosts(res.data.reverse());
+        console.log("res.data", res.data)
+
+        const data = res.data
+        const sorted = data.sort(function(a, b){return a.id - b.id})
+        setMyPosts(sorted.reverse());
       })
       .catch((err) => {
         console.log(err);

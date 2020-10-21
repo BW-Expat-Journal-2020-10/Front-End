@@ -18,10 +18,12 @@ const Post = () => {
 
   return (
     <div>
+        
       <div key={post.id} className="my-post">
         <h2>Title: {post.title}</h2>
         <img src={post.img_url} alt={post.title} />
         <h3>Body: {post.body}</h3>
+
       </div>
     </div>
   );

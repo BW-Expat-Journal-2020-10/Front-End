@@ -95,7 +95,6 @@ h3 {
   color: #323232ee;
 }
 
-
 .post-button:hover {
   color: rgba(231, 231, 231, 0.986);
   border: 1px solid white;
@@ -141,9 +140,26 @@ h3 {
   border-radius: 10px;
   border: 2px solid rgba(179, 178, 178, 0.8);
   width: 70%;
+  color: rgb(39, 39, 39);
 }
 
 .form-field:hover {
   border: 2px solid rgba(255, 255, 255, 0.8);
+
 }
 
+.edit-button {
+  margin-top: 1rem;
+  padding: 1rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  border-radius: 10px;
+  background-color: rgb(167, 168, 240);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #323232ee;
+}
+
+.edit-button:hover {
+  cursor: pointer;
+}

@@ -34,9 +34,6 @@ const PostPage = () => {
 
   return (
     <div>
-      <button onClick={() => push("/newpost")} className="post-button">
-        Create a new post
-      </button>
       {publicPosts.map((post, i) => (
         <div onClick={() => push(`/post/${post.id}`)} key={post.id}>
         <div className="main-post" key={i}>

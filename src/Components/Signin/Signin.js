@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SignInForm from "./SigninForm";
-import axios from "axios";
 import { useHistory } from "react-router-dom";
+import { axiosWithAuth } from "../../utils/axiosWithAuth";
 
 const initialSignInValues = {
   username: "",
@@ -22,9 +22,9 @@ export default function SignIn() {
 
   const submitForm = (e) => {
     e.preventDefault();
-    axios
+    axiosWithAuth()
       .post(
-        "https://expatjournal-api.herokuapp.com/api/auth/login",
+        "/api/auth/login",
         signInValues
 
       )

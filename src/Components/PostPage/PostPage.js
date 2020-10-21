@@ -15,8 +15,9 @@ const PostPage = () => {
 
   const fetchPosts = () => {
     axiosWithAuth()
-      .get("/posts")
+      .get("/api/posts")
       .then((res) => {
+        console.log(res)
         setPublicPosts(res.data);
       })
       .catch((err) => console.log(err));
@@ -24,7 +25,7 @@ const PostPage = () => {
 
   const fetchNames = () => {
     axiosWithAuth()
-    .get("/users")
+    .get("/api/users")
     .then(res => {
       setUsers(res.data)
     })
@@ -43,6 +44,7 @@ const PostPage = () => {
           }
 
           <img className="post" src={post.img_url} alt="oops! no_image" />
+          <p>{post.body}</p>
         </div>
       ))}
     </div>

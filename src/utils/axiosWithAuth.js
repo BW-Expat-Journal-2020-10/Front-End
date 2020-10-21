@@ -4,9 +4,10 @@ export const axiosWithAuth = () => {
   const token = window.localStorage.getItem("token");
 
   return axios.create({
+    baseURL: "https://expatjournal-api.herokuapp.com",
     headers: {
       Authorization: token
-    },
-    baseURL: "https://expatjournal-api.herokuapp.com/api/"
+    }
+   
   });
 };

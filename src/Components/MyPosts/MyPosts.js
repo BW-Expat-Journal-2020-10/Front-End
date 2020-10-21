@@ -4,20 +4,23 @@ import { useHistory } from "react-router-dom";
 
 const MyPosts = () => {
   const [myPosts, setMyPosts] = useState([]);
+
   const { push } = useHistory();
 
   useEffect(() => {
     const currentId = localStorage.getItem("userId");
     axiosWithAuth()
       .get(
-        `https://expatjournal-api.herokuapp.com/api/users/${currentId}/posts`
+        `/api/users/${currentId}/posts`
       )
       .then((res) => {
+       
         setMyPosts(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
+   
   }, []);
 
   return (

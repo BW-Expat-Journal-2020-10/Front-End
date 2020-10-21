@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import SignupForm from "./SignupForm";
-import axios from "axios";
 import * as yup from 'yup'
 import schema from "./validation/signupFormSchema"
+import { axiosWithAuth } from "../../utils/axiosWithAuth";
 
 const initialSignupValues = {
   username: "",
@@ -53,9 +53,9 @@ const Signup = () => {
 
   const submitForm = (e) => {
     e.preventDefault();
-    axios
+    axiosWithAuth()
       .post(
-        "https://expatjournal-api.herokuapp.com/api/auth/register",
+        "/api/auth/register",
         signupValues
       )
       .then((res) => {

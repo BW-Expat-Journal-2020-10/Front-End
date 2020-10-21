@@ -5,14 +5,14 @@ import img from "../../assets/Deepshot_Logo.jpg";
 const Navbar = () => {
   const welcomeMsg = localStorage.getItem("message");
 
-
   const { go } = useHistory();
 
   return (
     <NavContainer>
-
       <div className="logo-img">
-        <img className="logo" src={img} alt="deepshot camera img"></img>
+        <NavLink to="/homepage">
+          <img className="logo" src={img} alt="deepshot camera img"></img>
+        </NavLink>
       </div>
 
       <div className="nav">
@@ -26,10 +26,9 @@ const Navbar = () => {
             to="/"
             onClick={() => {
               localStorage.clear();
-            go(0);
+              go(0);
             }}
           >
-              
             Logout
           </Link>
         )}
@@ -46,14 +45,12 @@ const Navbar = () => {
       </div>
 
       <h3>{welcomeMsg}</h3>
-
     </NavContainer>
-    
   );
 };
 
 const NavContainer = styled.div`
-  width: 85%;
+  width: 100%;
   display: flex;
   justify-content: center;
   background-color: lightgray;
@@ -61,6 +58,8 @@ const NavContainer = styled.div`
   border-radius:10px;
   /* border-bottom:4px solid black;
   border-left:6px outset black; */
+  position: fixed;
+  z-index: 99;
   
     
   

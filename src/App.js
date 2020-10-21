@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-
+      <div className="ghost"></div>
       <Switch>
         {localStorage.getItem("token") ? (
           <PrivateRoute exact path="/" component={PostPage} />

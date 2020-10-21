@@ -18,7 +18,7 @@ const DeletePost = (props) => {
     }
     return (
 <div>
-<button onClick={deleteRequest}>delete</button>
+<button onClick={deleteRequest} className="button-change delete-button">Delete Post</button>
 </div>
     )
    

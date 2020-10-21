@@ -108,7 +108,6 @@ const NewPost = () => {
           <button disabled={disabled}>Post</button>
         </div>
       </form>
-      <h1>Post By My User Id</h1>
     </div>
   );
 };

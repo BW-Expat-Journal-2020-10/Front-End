@@ -2,7 +2,7 @@ import { faGolfBall } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import { Link, NavLink, useHistory } from "react-router-dom";
 import styled from "styled-components";
-
+import img from "../../assets/Deepshot_Logo.jpg";
 const Navbar = () => {
   const welcomeMsg = localStorage.getItem("message");
 
@@ -10,7 +10,9 @@ const Navbar = () => {
 
   return (
     <NavContainer>
-      <h1>Dispatch</h1>
+      <div className="logo-img">
+        <img className="logo" src={img} alt="deepshot camera img"></img>
+      </div>
       <div className="nav">
         {!localStorage.getItem("token") ? (
           <NavLink className="link" activeClassName="active" to="/login">
@@ -22,7 +24,6 @@ const Navbar = () => {
             to="/"
             onClick={() => {
               localStorage.clear();
- 
             go(0);
             }}
           >
@@ -40,7 +41,7 @@ const Navbar = () => {
           My Posts{" "}
         </NavLink>
       </div>
-      <h1>{welcomeMsg}</h1>
+      <h3>{welcomeMsg}</h3>
     </NavContainer>
   );
 };
@@ -56,30 +57,34 @@ const NavContainer = styled.div`
     border-radius: 20px;
     /* box-sizing: border-box; */
  /* border:4px solid pink; */
-    h1 {
-        color: gray;
-        font-size: 1.5rem;
-        font-weight: 500;
-        letter-spacing: 0.15rem;
-        line-height: 1;
+    .logo-img {
+      width:15%;
+          display:flex;
         margin-left:5%;
+        
+    }
+    .logo{
+      margin:auto;
+      border-radius:50%;
+      width:45%;
     }
     .nav {  display:flex;
-       flex-flow:row;   
+        flex-flow:row;   
         width:80%; 
         justify-content:center; 
         align-items: center;
         box-sizing:border-box;
+        
+      
         a {
           display:flex;
           
-         text-align: center;
-         width:10%;
+            text-align: center;
+            width:10%;
             padding: 0px 25px;
-           color: black;
+            color: black;
             text-decoration: none;
             margin: 20px;
-
             &:hover{
               color: whitesmoke;
           }
@@ -92,6 +97,10 @@ const NavContainer = styled.div`
    }
    .logout {
      color: red;
+   }
+   h3{
+     margin-right:10%;
+     letter-spacing:2px; 
    }
 }
 `;

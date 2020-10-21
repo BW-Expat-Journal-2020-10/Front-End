@@ -59,8 +59,8 @@ const NavContainer = styled.div`
   background-color: lightgray;
   margin:auto;
   border-radius:10px;
-  border-bottom:4px solid black;
-  border-left:6px outset black;
+  /* border-bottom:4px solid black;
+  border-left:6px outset black; */
   
     
   

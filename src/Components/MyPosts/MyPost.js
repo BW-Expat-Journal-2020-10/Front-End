@@ -4,17 +4,15 @@ import DeletePost from "./EditDelete/DeletePost";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import { useParams } from "react-router-dom";
 
-
 const MyPost = () => {
   const [post, setPost] = useState([]);
   const { id } = useParams();
-
 
   useEffect(() => {
     axiosWithAuth()
       .get(`/api/posts/${id}`)
       .then((res) => {
-        console.log(res)
+        console.log(res);
         setPost(res.data);
       })
       .catch((err) => console.log(err));
@@ -23,9 +21,9 @@ const MyPost = () => {
   return (
     <div>
       <h1>My post</h1>
-      <div key={post.id}>
-        <img src={post.img_url} alt={post.title} />
+      <div key={post.id} className="my-post">
         <h2>Title: {post.title}</h2>
+        <img src={post.img_url} alt={post.title} />
         <h3>Body: {post.body}</h3>
         <EditPost
           postId={post.id}

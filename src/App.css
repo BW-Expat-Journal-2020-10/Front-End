@@ -54,12 +54,18 @@ h3{
 .submit{
   width:20%;
   margin:auto;
-  border:1px solid black;
-  
+ 
 }
 .inputs{
   display: flex;
   flex-flow: column;
   line-height: 2rem;
   
+}
+
+button{
+  background-color: rgba(0, 0, 255, 0.13);
+  padding:5%;
+  border:2px solid black;
+  border:4px outset rgba(0, 0, 255, 0.13);
 }

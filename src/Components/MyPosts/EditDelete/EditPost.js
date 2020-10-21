@@ -36,10 +36,11 @@ export default function EditPost(props) {
   };
 
   return (
-    <form onSubmit={submit}>
+    <form onSubmit={submit} className="edit-box">
       Edit Post
-      <div className="inputs">
+      <div className="edit-form">
         <input
+          className="form-field"
           value={formValues.img_url}
           placeholder="img_url"
           name="img_url"
@@ -48,6 +49,7 @@ export default function EditPost(props) {
         />
 
         <input
+          className="form-field"
           value={formValues.title}
           placeholder="title"
           name="title"
@@ -56,6 +58,7 @@ export default function EditPost(props) {
         />
 
         <input
+          className="form-field"
           value={formValues.body}
           placeholder="body"
           name="body"
@@ -63,7 +66,7 @@ export default function EditPost(props) {
           onChange={change}
         />
       </div>
-      <button>Submit</button>
+      <button className="edit-button">Submit</button>
     </form>
   );
 }

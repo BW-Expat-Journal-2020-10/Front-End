@@ -47,11 +47,13 @@ const NewPost = () => {
   };
 
   const submitForm = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     axiosWithAuth()
       .post("/api/posts", postValues)
       .then((res) => {
-        push("/myposts");
+        console.log(res)
+        push("/myposts")
+       
       })
       .catch((err) => console.log(err));
   };
@@ -106,9 +108,9 @@ const NewPost = () => {
               />
             </label>
 
-            <div className="submit">
-              <button className="button-change new-post-button" disabled={disabled}>Post</button>
-            </div>
+            {/* <div className="submit"> */}
+              <button className="button-change new-post-button" onClick={submitForm}>Post</button>
+            {/* </div> */}
           </div>
         </form>
       </div>

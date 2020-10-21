@@ -10,14 +10,18 @@ const PostPage = () => {
 
   useEffect(() => {
     fetchPosts();
-    fetchNames();
+    // fetchNames();
   }, []);
 
+  useEffect(() => {
+    fetchNames();
+  }, [])
   const fetchPosts = () => {
     axiosWithAuth()
       .get("/api/posts")
       .then((res) => {
         console.log(res);
+        
         setPublicPosts(res.data.reverse());
       })
       .catch((err) => console.log(err));
@@ -33,7 +37,7 @@ const PostPage = () => {
 
   return (
     <div>
-      {publicPosts.map((post, i) => (
+      { publicPosts.map((post, i) => (
         <div className="main-post" onClick={() => push(`/post/${post.id}`)} key={post.id}>
           
           <div className="post-header">

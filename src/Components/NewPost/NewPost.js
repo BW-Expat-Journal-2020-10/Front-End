@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import * as yup from 'yup'
 import schema from './validation/newPostFormSchema'
@@ -12,11 +12,14 @@ const NewPost = () => {
     body: "",
   };
   const initialPostFormErrors = {
-    img_url: ""
+    img_url: "",
+    title: ""
   }
+  const initialDisabled = true
 
   const [postValues, setPostValues] = useState(initialPostValues);
   const [postFormErrors, setPostFormErrors] = useState(initialPostFormErrors)
+  const [disabled, setDisabled] = useState(initialDisabled)
 
   const inputChange = (e) => {
     e.persist()
@@ -51,6 +54,12 @@ const NewPost = () => {
       .catch((err) => console.log(err));
   };
 
+  useEffect(() => {
+    schema.isValid(postValues).then((valid) => {
+      setDisabled(!valid)
+    })
+  }, [postValues])
+
   return (
     <div>
       <form className="form-container" onSubmit={submitForm}>
@@ -58,6 +67,7 @@ const NewPost = () => {
 
         <div className="errors">
           <div>{postFormErrors.img_url}</div>
+          <div>{postFormErrors.title}</div>
         </div>
 
         <div className="inputs">
@@ -93,7 +103,7 @@ const NewPost = () => {
         </label>
 
         <div className="submit">
-          <button>Post</button>
+          <button disabled={disabled}>Post</button>
         </div>
       </form>
       <h1>Post By My User Id</h1>

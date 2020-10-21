@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 
 import { useHistory } from "react-router-dom";
+import styled from "styled-components";
 
 const PostPage = () => {
   const [publicPosts, setPublicPosts] = useState([]);
@@ -34,7 +35,9 @@ const PostPage = () => {
   return (
     <div>
       {publicPosts.map((post, i) => (
+        <div onClick={() => push(`/post/${post.id}`)} key={post.id}>
         <div className="main-post" key={i}>
+          
           <div className="post-header">
             <h2>Title: {post.title}</h2>
             {users.map((user) => {
@@ -46,6 +49,8 @@ const PostPage = () => {
 
           <img className="post" src={post.img_url} alt="oops! no_image" />
           <p>{post.body}</p>
+  
+        </div>
         </div>
       ))}
     </div>

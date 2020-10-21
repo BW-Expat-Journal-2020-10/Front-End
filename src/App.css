@@ -84,11 +84,11 @@ h3 {
 }
 
 .post-button {
-  background-color: rgb(167, 168, 240);
+  background-color: gray;
   padding: 2rem;
   margin-top: 3rem;
   border-radius: 10px;
-  border: 1px solid rgb(167, 168, 240);
+  border: 1px solid rgb(38, 40, 41);
   font-size: 1.5rem;
   font-weight: 700;
   cursor: pointer;
@@ -96,6 +96,7 @@ h3 {
 }
 
 .post-button:hover {
+  color: rgba(231, 231, 231, 0.986);
   border: 1px solid white;
 }
 

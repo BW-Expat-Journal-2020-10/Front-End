@@ -1,21 +1,15 @@
-import React, { useState, useContext } from "react";
-import { PostContext } from "../../context/PostContext";
+import React, { useState } from "react";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 
-
 const NewPost = () => {
-
-const userId = localStorage.getItem("userId")
-// const {userData } = useContext(PostContext);
-
+  const userId = localStorage.getItem("userId");
   const initialPostValues = {
-
     user_id: parseInt(userId),
     title: "",
     img_url: "",
-    body: ""
+    body: "",
   };
-  
+
   const [postValues, setPostValues] = useState(initialPostValues);
 
   const inputChange = (e) => {
@@ -26,20 +20,20 @@ const userId = localStorage.getItem("userId")
   };
 
   const submitForm = (e) => {
-      e.preventDefault()
-      console.log("submitted")
-      console.log(postValues)
-      axiosWithAuth().post("/posts", postValues)
+    e.preventDefault();
+    console.log("submitted");
+    console.log(postValues);
+    axiosWithAuth()
+      .post("/posts", postValues)
       .then((res) => {
-        console.log(res)
+        console.log(res);
       })
-      .catch((err) => console.log(err))
-  }
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div>
-      <form className="form-container" 
-      onSubmit={submitForm}>
+      <form className="form-container" onSubmit={submitForm}>
         <h2>Create a new Post</h2>
 
         <div className="inputs">
@@ -65,21 +59,20 @@ const userId = localStorage.getItem("userId")
           </label>
         </div>
         <label>
-            Story
-            <input
-              value={postValues.body}
-              name="body"
-              type="text"
-              onChange={inputChange}
-            />
-          </label>
+          Story
+          <input
+            value={postValues.body}
+            name="body"
+            type="text"
+            onChange={inputChange}
+          />
+        </label>
 
         <div className="submit">
           <button>Post</button>
         </div>
       </form>
       <h1>Post By My User Id</h1>
-
     </div>
   );
 };

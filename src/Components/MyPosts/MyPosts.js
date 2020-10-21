@@ -26,7 +26,7 @@ const MyPosts = () => {
       <h1>My Posts</h1>
       {myPosts.map((post) => {
         return (
-          <div onClick={() => push(`/mypost/${post.id}`)}>
+          <div onClick={() => push(`/mypost/${post.id}`)} key={post.id}>
             <div className="main-post" key={post.id}>
               <h2>Title: {post.title}</h2>
               <img src={post.img_url} alt={post.title} className="post" />

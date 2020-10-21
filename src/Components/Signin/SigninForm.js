@@ -30,7 +30,7 @@ export default function SignInForm(props) {
       </div>
       <div className="submit">
           <button>Sign In</button>
-          <i class="fas fa-shield-check"></i>
+          <i className="fas fa-shield-check"></i>
       </div>
     </form>
     </SigninWrapper>

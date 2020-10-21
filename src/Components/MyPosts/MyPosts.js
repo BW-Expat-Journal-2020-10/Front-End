@@ -25,7 +25,6 @@ const MyPosts = () => {
 
   return (
     <div>
-      <h1>My Posts</h1>
       {myPosts.map((post) => {
         return (
           <div onClick={() => push(`/mypost/${post.id}`)} key={post.id}>

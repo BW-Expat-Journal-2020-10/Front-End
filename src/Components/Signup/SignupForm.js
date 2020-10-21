@@ -65,7 +65,7 @@ export default function SignupForm (props) {
            </div>
 
            <div className="submit">
-               <button disabled={disabled}>Sign up</button>
+               <button disabled={disabled} className="inner-button">Sign up</button>
            </div>
        </form>
     )

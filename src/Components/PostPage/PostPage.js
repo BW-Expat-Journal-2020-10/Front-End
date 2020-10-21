@@ -7,7 +7,7 @@ import styled from "styled-components";
 const PostPage = () => {
   const [publicPosts, setPublicPosts] = useState([]);
   const { push } = useHistory();
-  const [ users, setUsers ] = useState([])
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     fetchPosts();
@@ -18,7 +18,7 @@ const PostPage = () => {
     axiosWithAuth()
       .get("/api/posts")
       .then((res) => {
-        console.log(res)
+        console.log(res);
         setPublicPosts(res.data);
       })
       .catch((err) => console.log(err));
@@ -26,29 +26,34 @@ const PostPage = () => {
 
   const fetchNames = () => {
     axiosWithAuth()
-    .get("/api/users")
-    .then(res => {
-      setUsers(res.data)
-    })
-  }
+      .get("/api/users")
+      .then((res) => {
+        setUsers(res.data);
+      });
+  };
 
   return (
     <div>
-
-      <button onClick={() => push("/newpost")}>Create a new post</button>
+      <button onClick={() => push("/newpost")} className="post-button">
+        Create a new post
+      </button>
       {publicPosts.map((post, i) => (
-        <div className='main-post' key={i}>
-   
-          <h2>{post.title}</h2>
-          {
-            users.map((user) => {
-              return post.user_id === user.id ? <h2 key={user.id} >Created By: {user.username}</h2> : null
-            })
-          }
+        <div onClick={() => push(`/post/${post.id}`)} key={post.id}>
+        <div className="main-post" key={i}>
+          
+          <div className="post-header">
+            <h2>Title: {post.title}</h2>
+            {users.map((user) => {
+              return post.user_id === user.id ? (
+                <h3 key={user.id} className="creator">Created By: {user.username}</h3>
+              ) : null;
+            })}
+          </div>
 
           <img className="post" src={post.img_url} alt="oops! no_image" />
           <p>{post.body}</p>
   
+        </div>
         </div>
       ))}
     </div>

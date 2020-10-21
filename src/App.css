@@ -171,6 +171,12 @@ h3 {
   border: 1px solid rgb(167, 168, 240);
 }
 
+.new-post-button {
+  background-color: rgb(167, 168, 240);
+  border: 1px solid rgb(167, 168, 240);
+  width: 100%;
+}
+
 .delete-button {
   background-color: rgb(252, 72, 72);
   border: 1px solid rgb(252, 72, 72);
@@ -190,3 +196,29 @@ h3 {
   margin: 1rem;
 }
 
+.form-spacer {
+  display: flex;
+  justify-content: center;
+}
+
+.form-holder {
+  width: 50%;
+}
+
+.new-post-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 90%;
+  color: rgba(179, 178, 178, 0.8);
+}
+
+.new-post-field {
+  margin-top: 1rem;
+  background-color: rgba(179, 178, 178, 0.8);
+  padding: 1rem;
+  border-radius: 10px;
+  border: 2px solid rgba(179, 178, 178, 0.8);
+  color: rgb(39, 39, 39);
+  min-width: 85%;
+}

@@ -30,7 +30,7 @@ export default function SignInForm(props) {
               value={values.password}
               placeholder={ "Password"}
               name="password"
-              type="text"
+              type="password"
               onChange={change}
               autoComplete="off"
             />

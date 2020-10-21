@@ -36,7 +36,7 @@ function SignupForm (props) {
                    <input 
                     value={values.password}
                     name="password"
-                    type="text"
+                    type="password"
                     onChange={change}
                     />
                </label>

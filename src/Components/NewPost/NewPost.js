@@ -49,7 +49,7 @@ const NewPost = () => {
   const submitForm = (e) => {
     e.preventDefault();
     axiosWithAuth()
-      .post("/posts", postValues)
+      .post("/api/posts", postValues)
       .then((res) => {
         push("/myposts")
       })

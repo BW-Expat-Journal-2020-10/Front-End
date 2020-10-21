@@ -5,15 +5,16 @@ import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import { useParams } from "react-router-dom";
 
 
-const MyPost = (props) => {
+const MyPost = () => {
   const [post, setPost] = useState([]);
   const { id } = useParams();
 
 
   useEffect(() => {
     axiosWithAuth()
-      .get(`/posts/${id}`)
+      .get(`/api/posts/${id}`)
       .then((res) => {
+        console.log(res)
         setPost(res.data);
       })
       .catch((err) => console.log(err));

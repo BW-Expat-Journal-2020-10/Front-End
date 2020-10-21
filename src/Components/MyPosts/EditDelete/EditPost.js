@@ -23,7 +23,7 @@ export default function EditPost(props) {
     e.preventDefault();
 
     axiosWithAuth()
-      .put(`/posts/${postId}`, formValues)
+      .put(`/api/posts/${postId}`, formValues)
       .then((res) => {
         setPost({
           ...post,

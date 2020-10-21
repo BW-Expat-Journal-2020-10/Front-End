@@ -3,13 +3,16 @@ import { axiosWithAuth } from '../../../utils/axiosWithAuth'
 import { useHistory } from "react-router-dom"
 
 
-const DeletePost = (props)=>{
+const DeletePost = (props) => {
     const { push } = useHistory()
     const deleteRequest = (e) => {
         e.preventDefault()  
        axiosWithAuth()
-        .delete(`https://expatjournal-api.herokuapp.com/api/posts/${props.postId}`)
-   .then(res =>{
+      
+        .delete(`/api/posts/${props.postId}`)
+        
+   .then(res => {
+    console.log(res)
        push("/myposts")
    })
     }

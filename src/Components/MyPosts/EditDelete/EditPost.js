@@ -66,7 +66,7 @@ export default function EditPost(props) {
           onChange={change}
         />
       </div>
-      <button className="edit-button">Submit</button>
+      <button className="edit-button">Save Changes</button>
     </form>
   );
 }

@@ -10,21 +10,20 @@ const MyPosts = () => {
   useEffect(() => {
     const currentId = localStorage.getItem("userId");
     axiosWithAuth()
-      .get(
-        `/api/users/${currentId}/posts`
-      )
+      .get(`/api/users/${currentId}/posts`)
       .then((res) => {
-       
         setMyPosts(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-   
   }, []);
 
   return (
     <div>
+      <button onClick={() => push("/newpost")} className="post-button">
+        Create a new post
+      </button>
       {myPosts.map((post) => {
         return (
           <div onClick={() => push(`/mypost/${post.id}`)} key={post.id}>

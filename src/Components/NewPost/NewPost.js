@@ -1,5 +1,4 @@
-import React, { useState, useContext } from "react";
-import { PostContext } from "../../context/PostContext";
+import React, { useState } from "react";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 
 

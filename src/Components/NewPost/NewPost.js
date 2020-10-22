@@ -95,6 +95,7 @@ const NewPost = () => {
                 name="title"
                 type="text"
                 onChange={inputChange}
+                required
               />
             </label>
             <label className="new-post-label">
@@ -105,12 +106,13 @@ const NewPost = () => {
                 name="body"
                 type="text"
                 onChange={inputChange}
+                required
               />
             </label>
 
-            {/* <div className="submit"> */}
-              <button className="button-change new-post-button" onClick={submitForm}>Post</button>
-            {/* </div> */}
+            <div className="submit">
+              <button className="button-change new-post-button" >Post</button>
+            </div>
           </div>
         </form>
       </div>

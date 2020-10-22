@@ -24,6 +24,7 @@ function App() {
         ) :  (
           <Route exact path="/" component={Signin} />
         )}
+        <Route exact path="/" component={Signin} />
         <Route exact path="/login" component={Signin} />
         <Route path="/signup" component={Signup} />
         <Route path="/newpost" component={NewPost} />

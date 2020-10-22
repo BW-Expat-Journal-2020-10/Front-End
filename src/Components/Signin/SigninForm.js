@@ -7,7 +7,7 @@ export default function SignInForm(props) {
   return (
     <SigninWrapper>
       <form className="form container" onSubmit={submit}>
-      <h1>LOG INN</h1>
+      <h1>LOG IN</h1>
         <div className="inputs">
           <label>
             <div className="label">

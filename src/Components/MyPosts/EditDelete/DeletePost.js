@@ -1,15 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { axiosWithAuth } from '../../../utils/axiosWithAuth'
 import { useHistory } from "react-router-dom"
+import { PostContext } from '../../../context/PostContext';
 
 
-const DeletePost = (props) => {
-    const { push } = useHistory()
+const DeletePost = () => {
+    const { push } = useHistory();
+    const { post } = useContext(PostContext);
+
     const deleteRequest = (e) => {
         e.preventDefault()  
        axiosWithAuth()
       
-        .delete(`/api/posts/${props.postId}`)
+        .delete(`/api/posts/${post.id}`)
         
    .then(res => {
     console.log(res)

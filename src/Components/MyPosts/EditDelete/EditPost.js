@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { axiosWithAuth } from "../../../utils/axiosWithAuth";
 import { useHistory } from "react-router-dom";
+import { PostContext } from "../../../context/PostContext";
 
-export default function EditPost(props) {
-  const { postValues, postId, setPost, post } = props;
+export default function EditPost() {
+  const {post, setPost} = useContext(PostContext);
+  // const { postValues, postId, setPost, post } = props;
   const { push } = useHistory();
 
   const initialFormValues = {
-    title: postValues.title,
-    body: postValues.body,
-    img_url: postValues.img_url,
+    title: post.title,
+    body: post.body,
+    img_url: post.img_url,
   };
 
   const [formValues, setformValues] = useState(initialFormValues);
@@ -24,7 +26,7 @@ export default function EditPost(props) {
   const submit = (e) => {
     e.preventDefault();
     axiosWithAuth()
-      .put(`/api/posts/${postId}`, formValues)
+      .put(`/api/posts/${post.id}`, formValues)
       .then((res) => {
         setPost({
           ...post,

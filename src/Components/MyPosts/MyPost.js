@@ -3,6 +3,7 @@ import EditPost from "./EditDelete/EditPost";
 import DeletePost from "./EditDelete/DeletePost";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import { useParams } from "react-router-dom";
+import {PostContext} from "../../context/PostContext";
 
 const MyPost = () => {
   const [post, setPost] = useState([]);
@@ -19,7 +20,23 @@ const MyPost = () => {
   }, [id]);
 
   return (
+
     <div>
+   
+    <div key={post.id} className="my-post">
+      <h2 className="title">Title: {post.title}</h2>
+      <img src={post.img_url} alt={post.title} />
+      <PostContext.Provider value={{post, setPost}}>
+      <EditPost>
+        <h3>Edit Post</h3>
+      </EditPost>
+      <DeletePost>Delete Post</DeletePost>
+      </PostContext.Provider>
+    </div>
+   
+    </div>
+   /* --------------- This is how it was before: -------------------*/
+    /* <div>
       <div key={post.id} className="my-post">
         <h2 className="title">Title: {post.title}</h2>
         <img src={post.img_url} alt={post.title} />
@@ -33,7 +50,7 @@ const MyPost = () => {
         </EditPost>
         <DeletePost postId={post.id}>Delete Post</DeletePost>
       </div>
-    </div>
+    </div> */
   );
 };
 

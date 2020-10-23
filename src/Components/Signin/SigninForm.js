@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import {Link } from "react-router-dom";
+
 export default function SignInForm(props) {
   const { change, values, submit } = props;
 
@@ -64,11 +65,51 @@ h1{
   }
 
   .label{
+    width: 200px;
+    padding: 0 0px;
+    
     text-align: left;
     margin: 0 0 0 70px;
 
     i{
       margin-right: 2px;
+      margin-top: 10px;
+    }
+    @media (max-width: 3000px) {
+     
+      justify-content: flex-start;
+     
+     margin: 10px 0 0 300px;
+    }
+    @media (max-width: 2500px) {
+     
+      justify-content: flex-start;
+     
+     margin: 10px 0 0 250px;
+    }
+    @media (max-width: 1500px) {
+     
+      justify-content: flex-start;
+     
+     margin: 10px 0 0 28px;
+    }
+    @media (max-width: 2000px) {
+     
+      justify-content: flex-start;
+     
+     margin: 10px 0 0 160px;
+    }
+    @media (max-width: 1500px) {
+     
+      justify-content: flex-start;
+     
+     margin: 10px 0 0 100px;
+    }
+    @media (max-width: 900px) {
+     
+      justify-content: flex-start;
+     
+     margin: 10px 0 0 3px;
     }
   }
 

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import { useParams } from "react-router-dom";
-
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 const Post = () => {
   const [post, setPost] = useState([]);
   const { id } = useParams();
@@ -17,16 +19,24 @@ const Post = () => {
   }, [id]);
 
   return (
-    <div>
-        
+    <PostWrapper>
+     
+
       <div key={post.id} className="my-post">
         <h2>Title: {post.title}</h2>
         <img src={post.img_url} alt={post.title} />
         <h3>Story: {post.body}</h3>
 
       </div>
-    </div>
+    </PostWrapper>
   );
 };
 
+
+
+const PostWrapper = styled.div`
+
+
+
+`;
 export default Post;

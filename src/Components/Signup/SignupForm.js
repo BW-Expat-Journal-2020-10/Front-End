@@ -102,7 +102,7 @@ h1{
   }
 
   .label{
-      box-sizing: border-box;
+    box-sizing: border-box;
     height: auto;
     text-align: left;
     margin: 0 0 0 60px;

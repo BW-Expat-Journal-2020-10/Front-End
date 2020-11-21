@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import { useHistory } from "react-router-dom";
+import styled from "styled-components";
 
 const MyPosts = () => {
   const [myPosts, setMyPosts] = useState([]);
@@ -21,20 +22,48 @@ const MyPosts = () => {
 
   return (
     <div>
-      <button onClick={() => push("/newpost")} className="post-button">
-        Create a new post
-      </button>
+      <Button onClick={() => push("/newpost")}>+</Button>
       {myPosts.map((post) => {
         return (
-            <div className="main-post" key={post.id} onClick={() => push(`/mypost/${post.id}`)}>
-              <h2>Title: {post.title}</h2>
-              <img src={post.img_url} alt={post.title} className="post" />
-              <h3>Story: {post.body}</h3>
-            </div>
+          <Styles
+            className="main-post"
+            key={post.id}
+            onClick={() => push(`/mypost/${post.id}`)}
+          >
+            <h2>Title: {post.title}</h2>
+            <img src={post.img_url} alt={post.title} className="post" />
+            <h3>{post.body}</h3>
+          </Styles>
         );
       })}
     </div>
   );
 };
+const Button = styled.button`
+  color: ${(pr) => pr.theme.primaryColor};
+  font-size: 2rem;
+  &:hover {
+    color: ${(pr) => pr.theme.secondaryColor};
+  }
+`;
+
+const Styles = styled.div`
+  border-radius: 2px;
+  width: 65%;
+  margin: 5% auto;
+  padding: 8% 0;
+  background-color: ${(pr) => pr.theme.prime};
+  border: 1px solid ${(pr) => pr.theme.secondaryColor};
+  color: ${(pr) => pr.theme.secondaryColor};
+  text-shadow: 1px 1px black;
+  font-size: 1.2rem;
+  box-shadow: 2px 4px 15px 2px black;
+  h2 {
+    margin-bottom: 20px;
+  }
+  h3 {
+    margin-top: 20px;
+  }
+`;
 
 export default MyPosts;

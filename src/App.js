@@ -10,12 +10,12 @@ import { Route, Switch } from "react-router-dom";
 import PrivateRoute from "./Components/PrivateRoute";
 import MyPost from "../src/Components/MyPosts/MyPost";
 import Navbar from "./Components/Navbar/Navbar";
-
 import Post from "./Components/Publicposts/Post";
 function App() {
   return (
     <div className="App">
       <Navbar />
+
       <div className="ghost"></div>
       <Switch>
         {localStorage.getItem("token") ? (
@@ -28,6 +28,7 @@ function App() {
         <PrivateRoute path="/homepage" component={PostPage} />
         <PrivateRoute path="/myposts" component={MyPosts} />
         <Route path="/mypost/:id" component={MyPost} />
+
         <Route path="/post/:id" component={Post} />
       </Switch>
     </div>

@@ -7,11 +7,11 @@ const Post = () => {
   const [post, setPost] = useState([]);
   const { id } = useParams();
   const [likes, setLikes] = useState(0);
-  // console.log(likes);
   const increase = () => {
     let newLikes = likes + 1;
     setLikes(newLikes);
-    console.log(newLikes);
+    localStorage.setItem("likes", likes);
+    localStorage.getItem("likes", likes);
   };
   useEffect(() => {
     axiosWithAuth()
@@ -31,19 +31,22 @@ const Post = () => {
         <div id="likes" className="like-button">
           <button id="increase" onClick={increase}>
             <h1>&#128076;</h1>
+            <div>likes {likes}</div>
           </button>
-          <span className="count">0</span>
         </div>
         <h3> {post.body}</h3>
         <div>
           <form className="form-container">
-            <input
-              placeholder="type comment here"
+            <textarea
+              placeholder="type comments here"
               value=""
               name="comments"
               type="text"
             />
-            <button className="post">submit</button>
+            <div className="btns">
+              <button className="post btn">submit</button>
+              <button className="discard btn">cancel</button>
+            </div>
           </form>
         </div>
       </Main>
@@ -92,11 +95,11 @@ const Main = styled.div`
     margin-top: 10px;
     padding: 1%;
     border-radius: 2px;
+    box-shadow: 1px 1px 5px 1px;
     background-color: ${(pr) => pr.theme.white};
     border: 2px solid ${(pr) => pr.theme.primaryColor};
     &:hover {
       border: 2px solid ${(pr) => pr.theme.secondaryColor};
-      box-shadow: 1px 1px 5px 1px;
       color: ${(pr) => pr.theme.secondaryColor};
     }
     span {
@@ -110,15 +113,34 @@ const Main = styled.div`
     margin: auto;
     margin-top: 30px;
     display: flex;
+    flex-direction: column;
     box-shadow: 1px 1px 5px 1px;
   }
-  input {
-    width: 90%;
+  textarea {
+    width: 100%;
     height: 5vh;
+    line-height: 1.2em;
+    box-shadow: 0.5px 0.5px 2.5px 0.5px;
   }
-  .post {
-    width: 15%;
+  .btns {
+    width: 80%;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    display: flex;
+    justify-content: space-between;
+  }
+  .btn {
+    width: 25%;
+    padding: 3%;
+    box-shadow: 1px 1px 5px 1px;
+    margin: auto;
     border: 2px solid ${(pr) => pr.theme.secondaryColor};
+  }
+  .btn:hover {
+    background-color: ${(pr) => pr.theme.teritaryColor};
+    color: white;
   }
 `;
 

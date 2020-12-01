@@ -22,7 +22,7 @@ const MyPosts = () => {
 
   return (
     <div>
-      <Button onClick={() => push("/newpost")}>+</Button>
+      <Button onClick={() => push("/newpost")}>(+)</Button>
       {myPosts.map((post) => {
         return (
           <Styles
@@ -30,7 +30,7 @@ const MyPosts = () => {
             key={post.id}
             onClick={() => push(`/mypost/${post.id}`)}
           >
-            <h2>Title: {post.title}</h2>
+            <h2> {post.title}</h2>
             <img src={post.img_url} alt={post.title} className="post" />
             <h3>{post.body}</h3>
           </Styles>
@@ -40,8 +40,10 @@ const MyPosts = () => {
   );
 };
 const Button = styled.button`
+  margin-top: 40px;
   color: ${(pr) => pr.theme.primaryColor};
-  font-size: 2rem;
+  font-size: 4rem;
+  box-shadow: 1px 0px 10px 1px black;
   &:hover {
     color: ${(pr) => pr.theme.secondaryColor};
   }

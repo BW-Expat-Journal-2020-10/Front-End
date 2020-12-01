@@ -8,12 +8,6 @@ const PostPage = () => {
   const { push } = useHistory();
   const [users, setUsers] = useState([]);
   const [likes, setLikes] = useState(0);
-  // console.log(likes);
-  const increase = () => {
-    let newLikes = likes + 1;
-    setLikes(newLikes);
-    console.log(newLikes);
-  };
   useEffect(() => {
     fetchPosts();
     fetchNames();
@@ -58,17 +52,17 @@ const PostPage = () => {
 
           <img className="post" src={post.img_url} alt="oops! no_image" />
           <div id="likes" className="like-button">
-            <button id="increase" onClick={increase}>
+            <button id="increase" onClick={(e) => setLikes(likes + 1)}>
               <h1>&#128076;</h1>
+              <div>likes {likes}</div>
             </button>
-            <span className="count">0</span>
           </div>
           <div className="txt">
             <p>{post.body}</p>
           </div>
           <div>
             <form className="form-container">
-              <input
+              <textarea
                 placeholder="type comment here"
                 value=""
                 name="comments"

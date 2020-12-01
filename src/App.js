@@ -5,12 +5,16 @@ import Signin from "./Components/Signin/Signin";
 import NewPost from "./Components/NewPost/NewPost";
 import PostPage from "./Components/PostPage/PostPage";
 import MyPosts from "./Components/MyPosts/MyPosts";
+import Chat from "./Components/Chat/Chat";
+import Join from "./Components/Join/Join";
 
 import { Route, Switch } from "react-router-dom";
 import PrivateRoute from "./Components/PrivateRoute";
 import MyPost from "../src/Components/MyPosts/MyPost";
 import Navbar from "./Components/Navbar/Navbar";
 import Post from "./Components/Publicposts/Post";
+import InfoBar from "./Components/InfoBar/InfoBar";
+
 function App() {
   return (
     <div className="App">
@@ -28,7 +32,9 @@ function App() {
         <PrivateRoute path="/homepage" component={PostPage} />
         <PrivateRoute path="/myposts" component={MyPosts} />
         <Route path="/mypost/:id" component={MyPost} />
-
+        <PrivateRoute path="/chat" component={Chat} />
+        <Route path="/" exact component={Join} />
+        <PrivateRoute path="/message" component={InfoBar} />
         <Route path="/post/:id" component={Post} />
       </Switch>
     </div>

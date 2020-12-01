@@ -42,8 +42,8 @@ const Navbar = () => {
         <NavLink className="link" to="/myposts">
           My Posts{" "}
         </NavLink>
+        <NavLink to="/chat">Messages</NavLink>
       </div>
-
       <h2>{welcomeMsg}</h2>
     </NavContainer>
   );
@@ -87,6 +87,7 @@ const NavContainer = styled.div`
       display: flex;
       font-size: 1.4rem;
       font-weight: 700;
+      align-items: center;
       text-align: center;
       width: 20%;
       padding: 0px 25px;

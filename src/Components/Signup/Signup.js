@@ -57,7 +57,7 @@ const Signup = () => {
     e.preventDefault();
     console.log(signupValues);
     axiosWithAuth()
-      .post("/createnewuser", signupValues)
+      .post("/users/user", signupValues)
       .then((res) => {
         const signInValues = {
           username: signupValues.username,

@@ -57,14 +57,15 @@ const Signup = () => {
     e.preventDefault();
     console.log(signupValues);
     axiosWithAuth()
-      .post("/register", signupValues)
+      .post("/api/auth/register", signupValues)
       .then((res) => {
         const signInValues = {
           username: signupValues.username,
           password: signupValues.password,
         };
+        
         axiosWithAuth()
-          .post("/login", signInValues)
+          .post("/api/auth/login", signInValues)
           .then((resolve) => {
             window.localStorage.setItem("token", resolve.data.token);
             window.localStorage.setItem("userId", resolve.data.id);

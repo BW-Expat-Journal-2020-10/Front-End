@@ -25,7 +25,7 @@ export default function SignIn() {
     console.log("Signing in", signInValues)
     axiosWithAuth()
       .post(
-        "/api/auth/login",
+        "/login",
         signInValues
       )
       .then((res) => {

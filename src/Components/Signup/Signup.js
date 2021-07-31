@@ -63,6 +63,7 @@ const Signup = () => {
           username: signupValues.username,
           password: signupValues.password,
         };
+        
         axiosWithAuth()
           .post("/api/auth/login", signInValues)
           .then((resolve) => {
